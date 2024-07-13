@@ -135,9 +135,10 @@ public class InvisibilityPotionListener implements Listener {
         if (e.getItem().getType() != Material.POTION) return;
         if (e.isCancelled()) return;
 
+        nms.minusAmount(e.getPlayer(), e.getItem(), 1);
+
         if (nms.isInvisibilityPotion(e.getItem())) {
             // remove potion bottle
-            nms.minusAmount(e.getPlayer(), e.getItem(), 1);
             BedWars.debug("Potions: " + e.getPlayer().getActivePotionEffects().size());
 
             PotionMeta meta = (PotionMeta) e.getItem().getItemMeta();

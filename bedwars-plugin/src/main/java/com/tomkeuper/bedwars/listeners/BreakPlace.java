@@ -530,6 +530,13 @@ public class BreakPlace implements Listener {
         if (a != null) {
             if (a.getStatus() == GameState.playing) {
                 e.blockList().removeIf((b) -> (a.isProtected(b.getLocation()) || a.isTeamBed(b.getLocation()) || (!a.isBlockPlaced(b) && !a.isAllowMapBreak())));
+
+                //only if the entity is a fireball
+                if (e.getEntityType().equals(EntityType.FIREBALL) || e.getEntityType().equals(EntityType.SMALL_FIREBALL)) {
+                    //remove the ability to break ender stone
+                    e.blockList().removeIf((b) -> (b.getType().equals(Material.ENDER_STONE)));
+                }
+
                 return;
             }
         }
