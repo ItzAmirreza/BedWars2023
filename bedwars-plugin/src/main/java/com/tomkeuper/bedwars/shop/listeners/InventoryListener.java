@@ -100,7 +100,8 @@ public class InventoryListener implements Listener {
                         return;
                     }
                     if (element.getCategoryContent().execute(p, shopCache, element.getSlot())) {
-                        ShopManager.shop.open(p, cache, false); // Reload the shop page. Needed to recalculate item purchasable
+                        // selected an item
+                        // ShopManager.shop.open(p, cache, false); // Reload the shop page. Needed to recalculate item purchasable
                     }
                     return;
                 }

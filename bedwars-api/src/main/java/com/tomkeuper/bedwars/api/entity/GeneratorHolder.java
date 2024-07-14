@@ -62,4 +62,8 @@ public class GeneratorHolder {
     public void destroy() {
         api.getVersionSupport().destroyPacketArmorStand(this);
     }
+
+    public ArmorStand getArmorStand() {
+        return armorStand;
+    }
 }

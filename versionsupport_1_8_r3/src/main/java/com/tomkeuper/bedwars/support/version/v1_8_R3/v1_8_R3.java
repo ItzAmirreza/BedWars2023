@@ -802,7 +802,7 @@ public class v1_8_R3 extends VersionSupport {
         ArmorStand armorStand = gh.getArmorStand();
         PacketPlayOutSpawnEntityLiving spawn = new PacketPlayOutSpawnEntityLiving(((CraftArmorStand) armorStand).getHandle());
         PacketPlayOutEntityMetadata metadata = new PacketPlayOutEntityMetadata(armorStand.getEntityId(), ((CraftArmorStand) armorStand).getHandle().getDataWatcher(), true);
-        PacketPlayOutEntityEquipment equipment = new PacketPlayOutEntityEquipment(armorStand.getEntityId(), 4, CraftItemStack.asNMSCopy(gh.getHelmet()));
+        PacketPlayOutEntityEquipment equipment = new PacketPlayOutEntityEquipment(armorStand.getEntityId(), 4, CraftItemStack.asNMSCopy(gh.getArmorStand().getHelmet()));
 
         for (Player p : armorStand.getWorld().getPlayers()) {
             ((CraftPlayer) p).getHandle().playerConnection.sendPacket(spawn);
