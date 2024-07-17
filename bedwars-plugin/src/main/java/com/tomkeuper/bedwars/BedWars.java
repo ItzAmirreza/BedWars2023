@@ -78,6 +78,7 @@ import com.tomkeuper.bedwars.listeners.blockstatus.BlockStatusListener;
 import com.tomkeuper.bedwars.listeners.chat.ChatAFK;
 import com.tomkeuper.bedwars.listeners.chat.ChatFormatting;
 import com.tomkeuper.bedwars.listeners.fixes.IdenticalWoolFix;
+import com.tomkeuper.bedwars.listeners.fixes.SwordDuplicateFix;
 import com.tomkeuper.bedwars.listeners.joinhandler.*;
 import com.tomkeuper.bedwars.connectionmanager.LoadedUsersCleaner;
 import com.tomkeuper.bedwars.connectionmanager.redis.RedisArenaListeners;
@@ -364,7 +365,7 @@ public class BedWars extends JavaPlugin {
 
         // Register events
         registerEvents(new EnderPearlLanded(), new QuitAndTeleportListener(), new BreakPlace(), new DamageDeathMove(), new Inventory(), new Interact(), new RefreshGUI(), new HungerWeatherSpawn(), new CmdProcess(),
-                new FireballListener(), new EggBridge(), new SpectatorListeners(), new BaseListener(), new TargetListener(), new LangListener(), new Warnings(this), new ChatAFK(), new GameEndListener(), new IdenticalWoolFix());
+                new FireballListener(), new EggBridge(), new SpectatorListeners(), new BaseListener(), new TargetListener(), new LangListener(), new Warnings(this), new ChatAFK(), new GameEndListener(), new IdenticalWoolFix(), new SwordDuplicateFix());
 
         if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_HEAL_POOL_ENABLE)) {
             registerEvents(new HealPoolListener());
