@@ -130,12 +130,17 @@ public class InvisibilityPotionListener implements Listener {
 
     @EventHandler
     public void onDrink(PlayerItemConsumeEvent e) {
+        if (e.isCancelled()) return;
+        if (e.getItem().getType() == Material.POTION){
+            e.getItem().setAmount(0);
+            return;
+        }
         IArena a = Arena.getArenaByPlayer(e.getPlayer());
         if (a == null) return;
-        if (e.getItem().getType() != Material.POTION) return;
-        if (e.isCancelled()) return;
 
-        nms.minusAmount(e.getPlayer(), e.getItem(), 1);
+
+        // nms.minusAmount(e.getPlayer(), e.getItem(), 1);
+
 
         if (nms.isInvisibilityPotion(e.getItem())) {
             // remove potion bottle

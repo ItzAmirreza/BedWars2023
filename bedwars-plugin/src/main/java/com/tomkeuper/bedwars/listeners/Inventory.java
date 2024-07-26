@@ -159,6 +159,14 @@ public class Inventory implements Listener {
             }
         }
 
+        // check if clicked item is 'Back' item
+        if (i.getType() == Material.ARROW){
+            if (ChatColor.stripColor(i.getItemMeta().getDisplayName()).equalsIgnoreCase("Back")){
+                BedWars.getUpgradeManager().getMenuForArena(a).open(p);
+                e.setCancelled(true);
+                return;
+            }
+        }
         //Prevent players from moving items in stats GUI
         if (nms.getInventoryName(e).equals(Language.getMsg(p, Messages.PLAYER_STATS_GUI_INV_NAME).replace("%bw_playername%", p.getName()).replace("%bw_player%", p.getDisplayName()))) {
             e.setCancelled(true);
